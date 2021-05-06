@@ -1,0 +1,19 @@
+@import '../styles/common';
+
+.book-search {
+    form {
+        display: flex;
+        align-items: center;
+        input {
+            font-size: rem(16px);
+            width: 100%;
+            padding: 13px;
+            margin-right: rem(15px);
+            border: none;
+            border-bottom: 1px solid $gray30;
+            @include media-mobile {
+                margin-right: rem(50px);
+            }
+        }
+    }
+}

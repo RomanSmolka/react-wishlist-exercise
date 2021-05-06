@@ -1,0 +1,76 @@
+@import "./common";
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    margin: rem(20px);
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+    color: $gray80;
+}
+
+h1,
+h2 {
+    font-size: 20px;
+    margin: $spacing-xxs 0;
+    font-weight: 500;
+    @include media-mobile {
+        font-size: rem(18px);
+    }
+}
+
+a {
+    cursor: pointer;
+    color: $blue-accent;
+
+    &:hover {
+        color: $blue-dark;
+    }
+
+    h1 {
+        flex: 1;
+    }
+}
+
+button {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+.icon {
+    overflow: visible;
+    fill: $gray80;
+
+    &--10 {
+        width: 10px;
+        height: 10px;
+    }
+
+    &--15 {
+        width: 15px;
+        height: 15px;
+    }
+
+    &--20 {
+        width: 20px;
+        height: 20px;
+    }
+
+    &--25 {
+        width: 25px;
+        height: 25px;
+    }
+
+    &--30 {
+        width: 30px;
+        height: 30px;
+    }
+}

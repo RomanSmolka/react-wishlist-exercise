@@ -1,130 +1,67 @@
-@import './variables';
+@import "./common";
+@import "./general";
 
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto,
-  'Helvetica Neue', Arial, sans-serif;
-}
-
-h1,
-h2 {
-  font-size: 24px;
-  margin: $spacing-xxs 0;
-  font-weight: 300;
-}
-
-input {
-  font-size: 0.8rem;
-  border: none;
-  border-bottom: 1px solid $gray40;
-  padding: $spacing-xxs;
-}
-
-a {
-  cursor: pointer;
-  color: $blue-accent;
-
-  &:hover {
-    color: $blue-dark;
-  }
-
-  h1 {
-    flex: 1;
-  }
-}
-
-.header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background-color: $blue-accent;
-  color: $white;
-  padding: $spacing-3xs $spacing-xs;
-
-  button {
-    padding: 0 $spacing-xs;
-  }
-}
-
-.header--content {
-  display: flex;
-  height: 10vh;
-  > * {
+.app {
     display: flex;
-    align-items: center;
-  }
-}
 
-main {
-  padding: $spacing-xs $spacing-xxs;
-  min-width: 300px;
-  max-width: 100vw;
-  margin: 0 auto;
-}
+    main {
+        flex-grow: 1;
+        transition: all 300ms ease;
+        .empty {
+            display: flex;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            min-height: 50vh;
+            font-size: 1.5rem;
+            color: $gray40;
+        }
+        .books {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+    }
 
-.reading-list-container {
-  padding: 0;
-  width: 400px;
-  height: 100vh;
+    aside {
+        margin-left: rem(25px);
+        flex: 0 0 30%;
+        min-width: rem(230px);
+        max-width: rem(300px);
+        transition: transform 300ms ease;
+        @include media-mobile {
+            position: fixed;
+            margin: 0;
+            width: rem(240px);
+            transform: translateX(calc(-100% - 20px));
+        }
+    }
 
-  h2 {
-    position: relative;
-    color: $white;
-    background-color: $gray80;
-    margin: 0;
-    padding: 0.75rem;
-    text-align: center;
-  }
+    .sidebar-trigger {
+        display: none;
+        position: fixed;
+        right: 15px;
+        top: 25px;
+        padding: 6px;
+        background-color: $gray20;
+        border-radius: 6px;
+        @include media-mobile {
+            display: flex;
+        }
+    }
 
-  button {
-    position: absolute;
-    top: $spacing-xxs;
-    right: $spacing-xxs;
-    padding: 0;
-    min-width: 36px;
-  }
-}
-
-.reading-list-content {
-  padding: $spacing-xxs;
-}
-
-.empty {
-  display: flex;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  min-height: 50vh;
-  font-size: 1.5rem;
-  color: $gray40;
-}
-
-form {
-  margin-bottom: $spacing-xs;
-}
-
-.full-width {
-  width: 100%;
-}
-.book {
-  border: 1px solid silver;
-  margin-top: .5rem;
-}
-.book--container {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content:space-around;
-  align-items: stretch;
-}
-
-.search-params {
-  flex-grow: 3;
-
-}
-.sidebar {
-  flex-grow: 1;
-
+    &.sidebar-open {
+        overflow: hidden;
+        main {
+            @include media-mobile {
+                opacity: 0.4;
+                transform: translateX(#{rem(260px)});
+            }
+        }
+        aside {
+            @include media-mobile {
+                transform: none;
+            }
+        }
+    }
 }

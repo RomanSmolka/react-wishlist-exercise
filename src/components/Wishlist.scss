@@ -1,0 +1,39 @@
+@import '../styles/common';
+
+.wishlist {
+    position: sticky;
+    top: rem(20px);
+    border: 1px solid $gray30;
+    border-radius: 6px;
+    background-color: $gray05;
+
+    h2 {
+        margin: 0;
+        padding: rem(10px) rem(15px);
+        background-color: $gray20;
+        border-radius: 6px 6px 0 0;
+        border-bottom: 1px solid $gray30;
+    }
+
+    ul {
+        padding-left: rem(30px);
+        li {
+            padding: rem(3px) rem(15px) rem(3px) rem(3px);
+            font-size: rem(14px);
+            button {
+                display: none;
+                margin-left: 5px;
+                float: right;
+            }
+            &:hover button {
+                display: inline-block;
+            }
+        }
+    }
+
+    p {
+        font-size: rem(12px);
+        padding: 0 rem(15px);
+    }
+
+}
