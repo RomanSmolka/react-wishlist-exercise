@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 
-import BookItem from './BookItem';
-import IBook from '../shared/model/Book';
+import BookItem from '../BookItem/BookItem';
+import IBook from '../../shared/model/Book';
 import { getBooksByType } from './book-search.service';
-import debounce from '../shared/debouncer/debouncer';
+import debounce from '../../shared/debouncer/debouncer';
 import './BookSearch.scss';
 
 const BookSearch = () => {
@@ -30,6 +30,7 @@ const BookSearch = () => {
             await requestBooks();
         }
         getAllBooks();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [debouncedBookType]);
 
     return (

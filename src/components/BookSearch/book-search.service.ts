@@ -1,4 +1,4 @@
-import  fetchUrl from '../shared/fetchUrl/fetchUrl';
+import  fetchUrl from '../../shared/fetchUrl/fetchUrl';
 
 export async function getBooksByType(type: string) {
     try {

@@ -36,7 +36,13 @@ export default ({ children }: any) => {
     };
 
     return (
-        <WishlistContext.Provider value={{ wishlist, sidebarOpen, saveBook, deleteBook, triggerSidebar }}>
+        <WishlistContext.Provider value={{ 
+            wishlist, 
+            sidebarOpen, 
+            saveBook, 
+            deleteBook, 
+            triggerSidebar 
+        }}>
             {children}
         </WishlistContext.Provider>
     );

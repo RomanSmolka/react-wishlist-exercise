@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import './styles/App.scss';
-import BookSearch from './components/BookSearch';
-import Wishlist from './components/Wishlist';
+import BookSearch from './components/BookSearch/BookSearch';
+import Wishlist from './components/Wishlist/Wishlist';
 import { ReactComponent as Icons } from './images/icons.svg';
 
 import WishlistContextProvider, { WishlistContext, WishlistContextType } from './shared/context/wishlist';
