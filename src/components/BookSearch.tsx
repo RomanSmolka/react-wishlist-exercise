@@ -1,20 +1,22 @@
 import React, { useEffect, useState } from 'react';
 
 import BookItem from './BookItem';
-import IBook from './model/Book';
+import IBook from '../shared/model/Book';
 import { getBooksByType } from './book-search.service';
+import debounce from '../shared/debouncer/debouncer';
 import './BookSearch.scss';
 
 const BookSearch = () => {
     const [bookType, updateBookType] = useState("");
-    const [bookTypeToSearch, updateBookTypeToSearch] = useState("");
-
+    
     const [totalBooksFound, updateTotalBooksFound] = useState(0);
     const [booksList, updateBooksList] = useState([]);
+    
+    const debouncedBookType = debounce(bookType, 500)
 
     async function requestBooks() {
-        if (bookTypeToSearch) {
-            const response = await getBooksByType(bookTypeToSearch);
+        if (debouncedBookType) {
+            const response = await getBooksByType(debouncedBookType);
             updateTotalBooksFound(response.totalItems);
             updateBooksList(response.items);
         } else {
@@ -28,27 +30,20 @@ const BookSearch = () => {
             await requestBooks();
         }
         getAllBooks();
-    }, [bookTypeToSearch]);
+    }, [debouncedBookType]);
 
     return (
             <>
                 <div className="book-search">
-                    <form
-                        onSubmit={(e) => {
-                            e.preventDefault();
-                            updateBookTypeToSearch(bookType)
-                        }}
-                    >
-                        <input
-                            className="full-width"
-                            autoFocus
-                            name="gsearch"
-                            type="search"
-                            value={bookType}
-                            placeholder="Search for books"
-                            onChange={e => updateBookType(e.target.value)}
-                        />
-                    </form>
+                    <input
+                        className="full-width"
+                        autoFocus
+                        name="gsearch"
+                        type="search"
+                        value={bookType}
+                        placeholder="Search for books"
+                        onChange={e => updateBookType(e.target.value)}
+                    />
 
                     <p>Total books found: { totalBooksFound }</p>
 
@@ -56,13 +51,13 @@ const BookSearch = () => {
                         <div className="empty">
                             <p>
                                 Try searching for a topic, for example
-                                <a href="#!" onClick={() => {
+                                {" "}
+                                "<a href="#!" onClick={() => {
                                         updateBookType("Javascript");
                                     }}
                                 >
-                                    {" "}
-                                    "Javascript"
-                                </a>
+                                    Javascript
+                                </a>"
                             </p>
                         </div>
                     )}

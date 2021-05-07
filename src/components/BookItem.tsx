@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 
-import IBook from './model/Book';
-import { WishlistContext, WishlistContextType } from './context/wishlist';
+import IBook from '../shared/model/Book';
+import { WishlistContext, WishlistContextType } from '../shared/context/wishlist';
 import './BookItem.scss';
 
 interface IProps {

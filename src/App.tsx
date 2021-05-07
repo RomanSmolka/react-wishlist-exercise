@@ -4,7 +4,7 @@ import BookSearch from './components/BookSearch';
 import Wishlist from './components/Wishlist';
 import { ReactComponent as Icons } from './images/icons.svg';
 
-import WishlistContextProvider, { WishlistContext, WishlistContextType } from './components/context/wishlist';
+import WishlistContextProvider, { WishlistContext, WishlistContextType } from './shared/context/wishlist';
 
 function Layout() {
     const { sidebarOpen, triggerSidebar } = useContext(WishlistContext) as WishlistContextType;

@@ -1,19 +1,18 @@
 @import '../styles/common';
 
 .book-search {
-    form {
-        display: flex;
-        align-items: center;
         input {
             font-size: rem(16px);
             width: 100%;
-            padding: 13px;
+            padding: rem(13px) 0 rem(13px) rem(15px);
             margin-right: rem(15px);
             border: none;
             border-bottom: 1px solid $gray30;
             @include media-mobile {
-                margin-right: rem(50px);
+                width: calc(100% - 50px);
             }
         }
-    }
+        p {
+            margin-left: rem(15px);
+        }
 }

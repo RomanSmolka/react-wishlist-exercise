@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 
-import { WishlistContext, WishlistContextType } from './context/wishlist';
-import IWishListItem from './model/WishlistItem';
+import { WishlistContext, WishlistContextType } from '../shared/context/wishlist';
+import IWishListItem from '../shared/model/WishlistItem';
 import './Wishlist.scss';
 
 const Wishlist = () => {
