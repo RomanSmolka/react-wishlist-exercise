@@ -67,7 +67,7 @@ const BookSearch = () => {
                 <div className="books">
                     {
                         bookType && (booksList.map(( item: IBook, index: number ) => (
-                            <BookItem book={item} key={index}/>
+                            <BookItem book={item} key={item.id}/>
                         )))
                     }
                     <article className="book-item"></article>

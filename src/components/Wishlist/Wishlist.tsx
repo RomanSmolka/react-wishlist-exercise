@@ -11,7 +11,7 @@ const Wishlist = () => {
             <h2>My Reading Wishlist ({ wishlist.length })</h2>
             <ul>
                 { wishlist.map((item: IWishListItem, index: number) => (
-                    <li key={index}>
+                    <li key={item.id}>
                         { item.title } 
                         <button 
                             title="Remove from wishlist"

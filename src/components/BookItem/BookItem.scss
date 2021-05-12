@@ -83,6 +83,14 @@
         -webkit-line-clamp: 5;
         font-size: rem(14px);
     }
+
+    &.on-wishlist {
+        .book-item__heart {
+            svg {
+                fill: $red;
+            }
+        }
+    }
 }
 
 #icon-heart {

@@ -5,6 +5,7 @@ import IWishListItem from "../model/WishlistItem";
 export type WishlistContextType = {
     wishlist: IWishListItem[];
     sidebarOpen: boolean;
+    triggerBook: (todo: IWishListItem) => void;
     saveBook: (todo: IWishListItem) => void;
     deleteBook: (id: string) => void;
     triggerSidebar: () => void;
@@ -15,6 +16,14 @@ export const WishlistContext = createContext<WishlistContextType | null>(null);
 export default ({ children }: any) => {
     const [wishlist, updateWishlist] = useState<IWishListItem[]>([]);
     const [sidebarOpen, updateSidebarOpen] = useState<boolean>(false);
+
+    const triggerBook = (book: IWishListItem) => {
+        if ( !wishlist.some(item => item.id === book.id )) {
+            saveBook(book);
+        } else {
+            deleteBook(book.id);
+        }
+    };
 
     const saveBook = (book: IWishListItem) => {
         if (!wishlist.some(item => item.id === book.id )) {
@@ -40,7 +49,8 @@ export default ({ children }: any) => {
             wishlist, 
             sidebarOpen, 
             saveBook, 
-            deleteBook, 
+            deleteBook,
+            triggerBook,
             triggerSidebar 
         }}>
             {children}

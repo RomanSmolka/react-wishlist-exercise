@@ -9,10 +9,11 @@ interface IProps {
 }
 
 const BookItem = ({ book }: IProps) => {
-    const { saveBook } = useContext(WishlistContext) as WishlistContextType;
+    const { wishlist, triggerBook } = useContext(WishlistContext) as WishlistContextType;
+    const isOnWishlist = wishlist.find((item) => item.id === book.id);
     return (
             <>
-                <article className="book-item">
+                <article className={`book-item ${ isOnWishlist ? "on-wishlist" : "" }`}>
                     <div className="book-item__top">
                         <div className="book-item__image">
                             <img src={ book.volumeInfo.imageLinks?.smallThumbnail } alt="" />
@@ -47,7 +48,7 @@ const BookItem = ({ book }: IProps) => {
                         <button 
                             className="book-item__heart clickable"
                             title="Add to wishlist"
-                            onClick={() => saveBook({ id: book.id, title: book.volumeInfo.title }) }
+                            onClick={() => triggerBook({ id: book.id, title: book.volumeInfo.title }) }
                         >
                             <svg className="icon icon--20">
                                 <use href="#icon-heart"></use>
